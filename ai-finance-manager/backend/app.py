@@ -45,6 +45,13 @@ def create_app(config_class=Config):
     app.register_blueprint(settings_bp, url_prefix="/api/settings")
     app.register_blueprint(dashboard_bp, url_prefix="/api/dashboard")
 
+    @app.route("/", methods=["GET"])
+    def home():
+        return jsonify({
+        "message": "AI Finance Manager Backend is running 🚀",
+        "health": "/api/health"
+        }), 200
+    
     @app.route("/api/health", methods=["GET"])
     def health():
         return jsonify({"status": "ok"}), 200
@@ -61,12 +68,7 @@ def create_app(config_class=Config):
         db.create_all()
 
     return app
-@app.route("/", methods=["GET"])
-def home():
-    return jsonify({
-        "message": "AI Finance Manager Backend is running 🚀",
-        "health": "/api/health"
-    }), 200
+
 
 app = create_app()
 
