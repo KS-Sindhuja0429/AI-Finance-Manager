@@ -1,3 +1,11 @@
+## How to Run This Project Locally
+
+### 1. Run the Backend
+1. Open your terminal in the `backend` folder.
+2. Create a `.env` file and add your `GEMINI_API_KEY=your_key_here`.
+3. Run:
+   ```bash
+   python app.py
 # Pulse — AI Personal Finance Manager
 
 A full-stack personal finance manager with authentication, transaction tracking,

@@ -61,7 +61,12 @@ def create_app(config_class=Config):
         db.create_all()
 
     return app
-
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "message": "AI Finance Manager Backend is running 🚀",
+        "health": "/api/health"
+    }), 200
 
 app = create_app()
 
